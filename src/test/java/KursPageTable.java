@@ -47,7 +47,7 @@ public class KursPageTable {
     }
 
     @Test
-    public void sortByUsdBuy(){
+    public void sortByUsdBuy() {
         KursPage.changeToAscSort(KursPage.usdBuyColumn());
         ArrayList<String> List = KursPage.setUsdBuy();
         Collections.sort(List, Comparator);
