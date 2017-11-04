@@ -1,7 +1,7 @@
 package utilities;
 
+
 import java.util.List;
-import net.sf.cglib.core.CollectionUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,11 +25,11 @@ public class Utils {
         }
     }
 
-    public void setElementText(By by, String text) {
+    public void setElementText(By by, String text){
         List<WebElement> elementList = driver.findElements(by);
-        for (WebElement element : elementList) {
-            ((JavascriptExecutor) driver)
-                  .executeScript("arguments[0].innerHTML = \"" + text + "\";", element);
+        for(WebElement element : elementList ){
+            ((JavascriptExecutor)driver)
+                  .executeScript("arguments[0].innerHTML = \""+text+"\";", element);
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.textToBePresentInElement(element, text));
         }
