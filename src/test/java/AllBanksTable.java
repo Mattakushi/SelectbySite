@@ -1,6 +1,7 @@
 import java.awt.AWTException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +39,7 @@ public class AllBanksTable {
     @Test
     public void sortByNumsAsc() {
         AllBanksPage.changeToAscSort(AllBanksPage.numsCollumn());
-        ArrayList<String> AscListNums = AllBanksPage.setAllNums();
+        List<String> AscListNums = AllBanksPage.setAllNums();
         Collections.sort(AscListNums, Comparator);
         Assert.assertEquals(AllBanksPage.setAllNums(), AscListNums);
     }
@@ -46,7 +47,7 @@ public class AllBanksTable {
     @Test
     public void sortByNumsDesc() {
         AllBanksPage.changeToDescSort(AllBanksPage.numsCollumn());
-        ArrayList<String> DescListNums = AllBanksPage.setAllNums();
+        List<String> DescListNums = AllBanksPage.setAllNums();
         Collections.sort(DescListNums, Comparator.reversed());
         Assert.assertEquals(AllBanksPage.setAllNums(), DescListNums);
     }
@@ -54,7 +55,7 @@ public class AllBanksTable {
     @Test
     public void sortByNamesAsc() {
         AllBanksPage.changeToAscSort(AllBanksPage.namesCollumn());
-        ArrayList<String> AscListName = AllBanksPage.setAllNames();
+        List<String> AscListName = AllBanksPage.setAllNames();
         Collections.sort(AscListName, Comparator);
         Assert.assertEquals(AllBanksPage.setAllNames(), AscListName);
     }
@@ -62,7 +63,7 @@ public class AllBanksTable {
     @Test
     public void sortByNamesDesc() {
         AllBanksPage.changeToDescSort(AllBanksPage.namesCollumn());
-        ArrayList<String> DescListName = AllBanksPage.setAllNames();
+        List<String> DescListName = AllBanksPage.setAllNames();
         Collections.sort(DescListName, Comparator.reversed());
         Assert.assertEquals(AllBanksPage.setAllNames(), DescListName);
     }

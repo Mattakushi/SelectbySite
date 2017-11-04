@@ -4,6 +4,7 @@ import static java.util.Collections.min;
 import java.awt.AWTException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +39,7 @@ public class KursPageTable {
     @Test
     public void sortByName() {
         KursPage.changeToAscSort(KursPage.nameColumn());
-        ArrayList<String> List = KursPage.setAllNames();
+        List<String> List = KursPage.setAllNames();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setAllNames(), List);
         KursPage.changeToDescSort(KursPage.nameColumn());
@@ -49,7 +50,7 @@ public class KursPageTable {
     @Test
     public void sortByUsdBuy() {
         KursPage.changeToAscSort(KursPage.usdBuyColumn());
-        ArrayList<String> List = KursPage.setUsdBuy();
+        List<String> List = KursPage.setUsdBuy();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setUsdBuy(), List);
         KursPage.changeToDescSort(KursPage.usdBuyColumn());
@@ -60,7 +61,7 @@ public class KursPageTable {
     @Test
     public void sortByUsdSell() {
         KursPage.changeToAscSort(KursPage.usdSellColumn());
-        ArrayList<String> List = KursPage.setUsdSell();
+        List<String> List = KursPage.setUsdSell();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setUsdSell(), List);
         KursPage.changeToDescSort(KursPage.usdSellColumn());
@@ -71,7 +72,7 @@ public class KursPageTable {
     @Test
     public void sortByEurBuy() {
         KursPage.changeToAscSort(KursPage.eurBuyColumn());
-        ArrayList<String> List = KursPage.setEurBuy();
+        List<String> List = KursPage.setEurBuy();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setEurBuy(), List);
         KursPage.changeToDescSort(KursPage.eurBuyColumn());
@@ -82,7 +83,7 @@ public class KursPageTable {
     @Test
     public void sortByEurSell() {
         KursPage.changeToAscSort(KursPage.eurSellColumn());
-        ArrayList<String> List = KursPage.setEurSell();
+        List<String> List = KursPage.setEurSell();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setEurSell(), List);
         KursPage.changeToDescSort(KursPage.eurSellColumn());
@@ -93,7 +94,7 @@ public class KursPageTable {
     @Test
     public void sortByRubBuy() {
         KursPage.changeToAscSort(KursPage.rubBuyColumn());
-        ArrayList<String> List = KursPage.setRubBuy();
+        List<String> List = KursPage.setRubBuy();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setRubBuy(), List);
         KursPage.changeToDescSort(KursPage.rubBuyColumn());
@@ -104,7 +105,7 @@ public class KursPageTable {
     @Test
     public void sortByRubSell() {
         KursPage.changeToAscSort(KursPage.rubSellColumn());
-        ArrayList<String> List = KursPage.setRubSell();
+        List<String> List = KursPage.setRubSell();
         Collections.sort(List, Comparator);
         Assert.assertEquals(KursPage.setRubSell(), List);
         KursPage.changeToDescSort(KursPage.rubSellColumn());

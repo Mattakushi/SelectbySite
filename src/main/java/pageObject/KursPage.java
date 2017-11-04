@@ -99,24 +99,24 @@ public class KursPage {
         return rubSellColumn;
     }
 
-    public ArrayList<String> setAllNames() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setAllNames() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < names.size(); x++) {
             elements.add(names.get(x).getText());
         }
         return elements;
     }
 
-    public ArrayList<String> setUsdBuy() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setUsdBuy() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < usdBuy.size(); x++) {
             elements.add(usdBuy.get(x).getText());
         }
         return elements;
     }
 
-    public ArrayList<String> setUsdSell() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setUsdSell() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < usdSell.size(); x++) {
             elements.add(usdSell.get(x).getText());
         }
@@ -124,8 +124,8 @@ public class KursPage {
     }
 
 
-    public ArrayList<String> setEurBuy() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setEurBuy() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < eurBuy.size(); x++) {
             elements.add(eurBuy.get(x).getText());
         }
@@ -133,8 +133,8 @@ public class KursPage {
     }
 
 
-    public ArrayList<String> setEurSell() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setEurSell() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < eurSell.size(); x++) {
             elements.add(eurSell.get(x).getText());
         }
@@ -142,8 +142,8 @@ public class KursPage {
     }
 
 
-    public ArrayList<String> setRubBuy() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setRubBuy() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < rubBuy.size(); x++) {
             elements.add(rubBuy.get(x).getText());
         }
@@ -151,15 +151,15 @@ public class KursPage {
     }
 
 
-    public ArrayList<String> setRubSell() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setRubSell() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < rubSell.size(); x++) {
             elements.add(rubSell.get(x).getText());
         }
         return elements;
     }
 
-    public ArrayList<String> setBestBank() {
+    public List<String> setBestBank() {
         int[] indexUsdBuy = IntStream.range(0, setUsdBuy().size())
               .filter(i -> setUsdBuy().get(i).equals(max(setUsdBuy())))
               .toArray();
@@ -198,7 +198,7 @@ public class KursPage {
                 c = i;
             }
         }
-        ArrayList<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < 1; x++) {
             elements.add("Банк с лучшими курсами: " + names.get(c).getText());
         }

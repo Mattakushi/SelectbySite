@@ -27,16 +27,16 @@ public class AllBanksPage {
         this.driver = driver;
     }
 
-    public ArrayList<String> setAllNums() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setAllNums() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < nums.size(); x++) {
             elements.add(nums.get(x).getText());
         }
         return elements;
     }
 
-    public ArrayList<String> setAllNames() {
-        ArrayList<String> elements = new ArrayList<String>();
+    public List<String> setAllNames() {
+        List<String> elements = new ArrayList<String>();
         for (int x = 0; x < names.size(); x++) {
             elements.add(names.get(x).getText());
         }
