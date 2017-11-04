@@ -199,7 +199,7 @@ public class KursPage {
             }
         }
         ArrayList<String> elements = new ArrayList<String>();
-        for (int x = 0; x < indexUsdBuy.length; x++) {
+        for (int x = 0; x < 1; x++) {
             elements.add("Банк с лучшими курсами: " + names.get(c).getText());
         }
         return elements;

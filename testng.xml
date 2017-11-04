@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="selectby_site">
+  <test name="Nopackage" >
+    <classes>
+      <class name= "AllBanksTable"/>
+      <class name= "KursPageTable"/>
+    </classes>
+  </test>
+</suite>
