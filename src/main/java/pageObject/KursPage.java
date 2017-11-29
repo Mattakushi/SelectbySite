@@ -4,20 +4,16 @@ import static java.util.Collections.max;
 import static java.util.Collections.min;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.AlphanumComparator;
-import utilities.Utils;
 
 public class KursPage {
 
     WebDriver driver;
-
-    private static final AlphanumComparator Comparator = new AlphanumComparator();
 
     @FindBy(xpath = "//tr[@class='tablesorter-headerRow']/th[@data-column='1']")
     private WebElement nameColumn;

@@ -1,5 +1,4 @@
 import java.awt.AWTException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -16,18 +15,17 @@ import utilities.Utils;
 
 public class AllBanksTable {
 
+    WebDriver driver;
     static pageObject.HomePage HomePage;
     static pageObject.AllBanksPage AllBanksPage;
     static utilities.Utils Utils;
     private static final AlphanumComparator Comparator = new AlphanumComparator();
 
-    WebDriver driver;
 
     @BeforeClass
     public void setup() throws AWTException {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         HomePage = PageFactory.initElements(driver, pageObject.HomePage.class);
         AllBanksPage = PageFactory.initElements(driver, pageObject.AllBanksPage.class);
@@ -76,7 +74,7 @@ public class AllBanksTable {
     @Test
     public void checkAllBanksFail() {
         Utils.removeElements(By.xpath("//tr[@class='static sectiontableentry1 odd']"));
-        Assert.assertEquals(AllBanksPage.setAllNames().size(), 30);
+        Assert.assertEquals(AllBanksPage.setAllNames().size(), 29);
     }
 
     @AfterClass

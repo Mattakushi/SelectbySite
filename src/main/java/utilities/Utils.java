@@ -1,6 +1,5 @@
 package utilities;
 
-
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,19 +16,11 @@ public class Utils {
         this.driver = driver;
     }
 
-    public void setSortAttribute(By by, String attr, String value) {
+    public void setElementText(By by, String text) {
         List<WebElement> elementList = driver.findElements(by);
         for (WebElement element : elementList) {
             ((JavascriptExecutor) driver)
-                  .executeScript("arguments[0].setAttribute('" + attr + "', '" + value + "');", element);
-        }
-    }
-
-    public void setElementText(By by, String text){
-        List<WebElement> elementList = driver.findElements(by);
-        for(WebElement element : elementList ){
-            ((JavascriptExecutor)driver)
-                  .executeScript("arguments[0].innerHTML = \""+text+"\";", element);
+                  .executeScript("arguments[0].innerHTML = \"" + text + "\";", element);
             WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.textToBePresentInElement(element, text));
         }
@@ -41,50 +32,6 @@ public class Utils {
             ((JavascriptExecutor) driver)
                   .executeScript("arguments[0].remove();", element);
         }
-    }
-
-    transient Object[] elementData;
-    private int size;
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    public int indexNth(List charList, int n, Object _enum) {
-        int index = 0;
-        int findTimes = 0;
-        if (n == 0) {
-            return -1;
-        }
-        if (charList.isEmpty()) {
-            return -1;
-        }
-        for (Object o : charList) {
-            if (o.equals(_enum)) {
-                findTimes++;
-            }
-            if (findTimes >= n) {
-                return index;
-            }
-            index++;
-        }
-        return -1;
-    }
-
-    public int indexOf(Object o) {
-        if (o == null) {
-            for (int i = 0; i < size; i++) {
-                if (elementData[i] == null) {
-                    return i;
-                }
-            }
-        } else {
-            for (int i = 0; i < size; i++) {
-                if (o.equals(elementData[i])) {
-                    return i;
-                }
-            }
-        }
-        return -1;
     }
 
 }
