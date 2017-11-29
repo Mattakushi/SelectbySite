@@ -19,7 +19,7 @@ public class KursPageTable {
     private static final AlphanumComparator Comparator = new AlphanumComparator();
 
     @BeforeClass
-    public void setup() throws AWTException {
+    public void setup() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -107,7 +107,7 @@ public class KursPageTable {
         Assert.assertEquals(KursPage.setRubSell(), List);
     }
 
-    @Test
+    @Test(enabled = false)
     public void selectBestBank() {
         System.out.println(KursPage.setBestBank());
     }

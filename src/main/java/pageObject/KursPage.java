@@ -9,7 +9,6 @@ import java.util.stream.IntStream;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utilities.AlphanumComparator;
 
 public class KursPage {
 
@@ -96,7 +95,7 @@ public class KursPage {
     }
 
     public List<String> setAllNames() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < names.size(); x++) {
             elements.add(names.get(x).getText());
         }
@@ -104,7 +103,7 @@ public class KursPage {
     }
 
     public List<String> setUsdBuy() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < usdBuy.size(); x++) {
             elements.add(usdBuy.get(x).getText());
         }
@@ -112,7 +111,7 @@ public class KursPage {
     }
 
     public List<String> setUsdSell() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < usdSell.size(); x++) {
             elements.add(usdSell.get(x).getText());
         }
@@ -121,7 +120,7 @@ public class KursPage {
 
 
     public List<String> setEurBuy() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < eurBuy.size(); x++) {
             elements.add(eurBuy.get(x).getText());
         }
@@ -130,7 +129,7 @@ public class KursPage {
 
 
     public List<String> setEurSell() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < eurSell.size(); x++) {
             elements.add(eurSell.get(x).getText());
         }
@@ -139,7 +138,7 @@ public class KursPage {
 
 
     public List<String> setRubBuy() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < rubBuy.size(); x++) {
             elements.add(rubBuy.get(x).getText());
         }
@@ -148,14 +147,14 @@ public class KursPage {
 
 
     public List<String> setRubSell() {
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < rubSell.size(); x++) {
             elements.add(rubSell.get(x).getText());
         }
         return elements;
     }
 
-    public List<String> setBestBank() {
+    public int[][] setBestBank() {
         int[] indexUsdBuy = IntStream.range(0, setUsdBuy().size())
               .filter(i -> setUsdBuy().get(i).equals(max(setUsdBuy())))
               .toArray();
@@ -184,7 +183,7 @@ public class KursPage {
         byte max = count[0];
         boolean repeat = false;
         byte c = 0;
-        for (byte i = 0; i < 6; i++) {
+        for (byte i = 0; i < count.length; i++) {
             if (count[i] == max) {
                 repeat = true;
             }
@@ -194,11 +193,11 @@ public class KursPage {
                 c = i;
             }
         }
-        List<String> elements = new ArrayList<String>();
+        List<String> elements = new ArrayList<>();
         for (int x = 0; x < 1; x++) {
             elements.add("Банк с лучшими курсами: " + names.get(c).getText());
         }
-        return elements;
+        return allIndexs;
     }
 
     public KursPage changeToAscSort(WebElement element) {
