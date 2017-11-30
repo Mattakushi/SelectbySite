@@ -26,6 +26,14 @@ public class Utils {
         }
     }
 
+    public void setElementAttribute(By by, String attr, String value){
+        List<WebElement> elementList = driver.findElements(by);
+        for(WebElement element : elementList ) {
+            ((JavascriptExecutor)driver)
+                  .executeScript("arguments[0].setAttribute('" + attr + "', '" + value + "');", element);
+        }
+    }
+
     public void removeElements(By by) {
         List<WebElement> elementsList = driver.findElements(by);
         for (WebElement element : elementsList) {

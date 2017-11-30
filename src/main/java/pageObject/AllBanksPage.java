@@ -13,13 +13,13 @@ public class AllBanksPage {
     @FindBy(xpath = "//table[@id='bel_banks']//tr/td[@align='left'][1]")
     private List<WebElement> nums;
 
-    @FindBy(xpath = "//tr[@class='tablesorter-headerRow']/th[@data-column='0']")
+    @FindBy(xpath = "//table[@id='bel_banks']//th[@data-column='0']")
     private WebElement numsCollumn;
 
     @FindBy(xpath = "//table[@id='bel_banks']//tr/td[@align='left'][2]/a/b")
     private List<WebElement> names;
 
-    @FindBy(xpath = "//tr[@class='tablesorter-headerRow']/th[@data-column='2']")
+    @FindBy(xpath = "//table[@id='bel_banks']//th[@data-column='2']")
     private WebElement namesCollumn;
 
     public AllBanksPage(WebDriver driver) {

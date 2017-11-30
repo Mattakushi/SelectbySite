@@ -32,6 +32,7 @@ public class AllBanksTable {
         Utils = new Utils(driver);
         HomePage.goUrl();
         HomePage.goToAllBanksPage();
+        Utils.setElementAttribute(By.xpath("//table[@id='bel_banks']//tr[1]"), "class", "sectiontableentry1 odd");
     }
 
     @Test
@@ -71,9 +72,9 @@ public class AllBanksTable {
         Assert.assertEquals(AllBanksPage.setAllNames().size(), 30);
     }
 
-    @Test
+    @Test(priority = 1)
     public void checkAllBanksFail() {
-        Utils.removeElements(By.xpath("//tr[@class='static sectiontableentry1 odd']"));
+        Utils.removeElements(By.xpath("//table[@id='bel_banks']//tr[@data-row-index='0']"));
         Assert.assertEquals(AllBanksPage.setAllNames().size(), 29);
     }
 

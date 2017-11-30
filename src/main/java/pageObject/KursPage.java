@@ -154,7 +154,7 @@ public class KursPage {
         return elements;
     }
 
-    public int[][] setBestBank() {
+    public List<String> setBestBank() {
         int[] indexUsdBuy = IntStream.range(0, setUsdBuy().size())
               .filter(i -> setUsdBuy().get(i).equals(max(setUsdBuy())))
               .toArray();
@@ -197,7 +197,7 @@ public class KursPage {
         for (int x = 0; x < 1; x++) {
             elements.add("Банк с лучшими курсами: " + names.get(c).getText());
         }
-        return allIndexs;
+        return elements;
     }
 
     public KursPage changeToAscSort(WebElement element) {

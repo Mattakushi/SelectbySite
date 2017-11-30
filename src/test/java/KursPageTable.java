@@ -107,7 +107,7 @@ public class KursPageTable {
         Assert.assertEquals(KursPage.setRubSell(), List);
     }
 
-    @Test(enabled = false)
+    @Test
     public void selectBestBank() {
         System.out.println(KursPage.setBestBank());
     }
