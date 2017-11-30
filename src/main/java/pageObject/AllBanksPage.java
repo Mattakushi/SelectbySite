@@ -6,9 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AllBanksPage {
-
-    WebDriver driver;
+public class AllBanksPage extends HomePage{
 
     @FindBy(xpath = "//table[@id='bel_banks']//tr/td[@align='left'][1]")
     private List<WebElement> nums;
@@ -23,21 +21,21 @@ public class AllBanksPage {
     private WebElement namesCollumn;
 
     public AllBanksPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public List<String> setAllNums() {
         List<String> elements = new ArrayList<String>();
-        for (int x = 0; x < nums.size(); x++) {
-            elements.add(nums.get(x).getText());
+        for (WebElement element : nums) {
+            elements.add(element.getText());
         }
         return elements;
     }
 
     public List<String> setAllNames() {
         List<String> elements = new ArrayList<String>();
-        for (int x = 0; x < names.size(); x++) {
-            elements.add(names.get(x).getText());
+        for (WebElement element : names) {
+            elements.add(element.getText());
         }
         return elements;
     }

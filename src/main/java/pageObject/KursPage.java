@@ -10,9 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class KursPage {
-
-    WebDriver driver;
+public class KursPage extends HomePage {
 
     @FindBy(xpath = "//tr[@class='tablesorter-headerRow']/th[@data-column='1']")
     private WebElement nameColumn;
@@ -63,7 +61,7 @@ public class KursPage {
     private List<WebElement> allInfo;
 
     public KursPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public WebElement nameColumn() {
@@ -96,24 +94,24 @@ public class KursPage {
 
     public List<String> setAllNames() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < names.size(); x++) {
-            elements.add(names.get(x).getText());
+        for (WebElement element : names) {
+            elements.add(element.getText());
         }
         return elements;
     }
 
     public List<String> setUsdBuy() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < usdBuy.size(); x++) {
-            elements.add(usdBuy.get(x).getText());
+        for (WebElement element : usdBuy) {
+            elements.add(element.getText());
         }
         return elements;
     }
 
     public List<String> setUsdSell() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < usdSell.size(); x++) {
-            elements.add(usdSell.get(x).getText());
+        for (WebElement element : usdSell) {
+            elements.add(element.getText());
         }
         return elements;
     }
@@ -121,8 +119,8 @@ public class KursPage {
 
     public List<String> setEurBuy() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < eurBuy.size(); x++) {
-            elements.add(eurBuy.get(x).getText());
+        for (WebElement element : eurBuy) {
+            elements.add(element.getText());
         }
         return elements;
     }
@@ -130,8 +128,8 @@ public class KursPage {
 
     public List<String> setEurSell() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < eurSell.size(); x++) {
-            elements.add(eurSell.get(x).getText());
+        for (WebElement element : eurSell) {
+            elements.add(element.getText());
         }
         return elements;
     }
@@ -139,8 +137,8 @@ public class KursPage {
 
     public List<String> setRubBuy() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < rubBuy.size(); x++) {
-            elements.add(rubBuy.get(x).getText());
+        for (WebElement element : rubBuy) {
+            elements.add(element.getText());
         }
         return elements;
     }
@@ -148,8 +146,8 @@ public class KursPage {
 
     public List<String> setRubSell() {
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < rubSell.size(); x++) {
-            elements.add(rubSell.get(x).getText());
+        for (WebElement element : rubSell) {
+            elements.add(element.getText());
         }
         return elements;
     }
@@ -173,29 +171,29 @@ public class KursPage {
         int[] indexRubSell = IntStream.range(0, setRubSell().size())
               .filter(i -> setRubSell().get(i).equals(min(setRubSell())))
               .toArray();
+        int[] counter = new int[names.size()];
         int[][] allIndexs = {indexUsdBuy, indexUsdSell, indexEurBuy, indexEurSell, indexRubBuy, indexRubSell};
-        byte[] count = new byte[names.size()];
-        for (int i = 0; i < allIndexs.length; i++) {
-            for (int j = 0; j < allIndexs[i].length; j++) {
-                count[allIndexs[i][j]]++;
+        for (int[] arr : allIndexs) {
+            for (int arrs : arr) {
+                counter[arrs]++;
             }
         }
-        byte max = count[0];
-        boolean repeat = false;
-        byte c = 0;
-        for (byte i = 0; i < count.length; i++) {
-            if (count[i] == max) {
-                repeat = true;
+        int max = counter[0];
+        int[] index = new int[names.size()+1];
+        for (int i = 0; i < counter.length; i++) {
+            if (counter[i] > max) {
+                max = counter[i];
+                index[i+1] = i;
             }
-            if (count[i] > max) {
-                max = count[i];
-                repeat = false;
-                c = i;
+            if (counter[i] == max) {
+                index[i+1] = i;
             }
         }
         List<String> elements = new ArrayList<>();
-        for (int x = 0; x < 1; x++) {
-            elements.add("Банк с лучшими курсами: " + names.get(c).getText());
+        for (int in : index) {
+            if (in > 0) {
+                elements.add("\nБанк с лучшими курсами: " + names.get(in).getText());
+            }
         }
         return elements;
     }

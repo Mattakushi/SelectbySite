@@ -18,7 +18,7 @@ public class HomePage {
         this.driver = driver;
     }
 
-    public HomePage goUrl(){
+    public HomePage goHomeUrl(){
         driver.get("https://select.by/");
         return this;
     }

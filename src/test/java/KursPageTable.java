@@ -1,4 +1,3 @@
-import java.awt.AWTException;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -14,7 +13,6 @@ import utilities.AlphanumComparator;
 public class KursPageTable {
 
     WebDriver driver;
-    static pageObject.HomePage HomePage;
     static pageObject.KursPage KursPage;
     private static final AlphanumComparator Comparator = new AlphanumComparator();
 
@@ -24,10 +22,9 @@ public class KursPageTable {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        HomePage = PageFactory.initElements(driver, pageObject.HomePage.class);
         KursPage = PageFactory.initElements(driver, pageObject.KursPage.class);
-        HomePage.goUrl();
-        HomePage.goToKursPage();
+        KursPage.goHomeUrl();
+        KursPage.goToKursPage();
     }
 
     @Test

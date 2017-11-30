@@ -16,7 +16,6 @@ import utilities.Utils;
 public class AllBanksTable {
 
     WebDriver driver;
-    static pageObject.HomePage HomePage;
     static pageObject.AllBanksPage AllBanksPage;
     static utilities.Utils Utils;
     private static final AlphanumComparator Comparator = new AlphanumComparator();
@@ -27,11 +26,10 @@ public class AllBanksTable {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        HomePage = PageFactory.initElements(driver, pageObject.HomePage.class);
         AllBanksPage = PageFactory.initElements(driver, pageObject.AllBanksPage.class);
         Utils = new Utils(driver);
-        HomePage.goUrl();
-        HomePage.goToAllBanksPage();
+        AllBanksPage.goHomeUrl();
+        AllBanksPage.goToAllBanksPage();
         Utils.setElementAttribute(By.xpath("//table[@id='bel_banks']//tr[1]"), "class", "sectiontableentry1 odd");
     }
 
