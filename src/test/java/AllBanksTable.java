@@ -28,8 +28,8 @@ public class AllBanksTable {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         AllBanksPage = PageFactory.initElements(driver, pageObject.AllBanksPage.class);
         Utils = new Utils(driver);
-        AllBanksPage.goHomeUrl();
-        AllBanksPage.goToAllBanksPage();
+        AllBanksPage.goHomeUrl()
+              .goToAllBanksPage();
         Utils.setElementAttribute(By.xpath("//table[@id='bel_banks']//tr[1]"), "class", "sectiontableentry1 odd");
     }
 

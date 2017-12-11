@@ -54,12 +54,6 @@ public class KursPage extends HomePage {
     @FindBy(xpath = "//tr[contains(@class, 'tablesorter-hasChildRow')]/td[8]")
     private List<WebElement> rubSell;
 
-    @FindBy(xpath = "//tr[@class='tablesorter-headerRow')]/th[position() >1, < 9]")
-    private List<WebElement> allInfoNames;
-
-    @FindBy(xpath = "//tr[contains(@class, 'tablesorter-hasChildRow')]/td[position() > 1]")
-    private List<WebElement> allInfo;
-
     public KursPage(WebDriver driver) {
         super(driver);
     }
@@ -183,10 +177,10 @@ public class KursPage extends HomePage {
         for (int i = 0; i < counter.length; i++) {
             if (counter[i] > max) {
                 max = counter[i];
-                index[i+1] = i;
-            }
+            }}
+        for (int i = 0; i < counter.length; i++) {
             if (counter[i] == max) {
-                index[i+1] = i;
+                index[i] = i;
             }
         }
         List<String> elements = new ArrayList<>();

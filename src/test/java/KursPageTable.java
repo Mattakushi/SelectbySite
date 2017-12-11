@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
@@ -9,12 +8,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.AlphanumComparator;
+import utilities.Utils;
 
 public class KursPageTable {
 
     WebDriver driver;
-    static pageObject.KursPage KursPage;
-    private static final AlphanumComparator Comparator = new AlphanumComparator();
+    static pageObject.KursPage kursPage;
+    static utilities.Utils utils;
+    private static final AlphanumComparator COMPARATOR = new AlphanumComparator();
 
     @BeforeClass
     public void setup() {
@@ -22,91 +23,92 @@ public class KursPageTable {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        KursPage = PageFactory.initElements(driver, pageObject.KursPage.class);
-        KursPage.goHomeUrl();
-        KursPage.goToKursPage();
+        utils = new Utils(driver);
+        kursPage = PageFactory.initElements(driver, pageObject.KursPage.class);
+        kursPage.goHomeUrl()
+              .goToKursPage();
     }
 
     @Test
     public void sortByName() {
-        KursPage.changeToAscSort(KursPage.nameColumn());
-        List<String> List = KursPage.setAllNames();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setAllNames(), List);
-        KursPage.changeToDescSort(KursPage.nameColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setAllNames(), List);
+        kursPage.changeToAscSort(kursPage.nameColumn());
+        List<String> List = kursPage.setAllNames();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setAllNames(), List);
+        kursPage.changeToDescSort(kursPage.nameColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setAllNames(), List);
     }
 
     @Test
     public void sortByUsdBuy() {
-        KursPage.changeToAscSort(KursPage.usdBuyColumn());
-        List<String> List = KursPage.setUsdBuy();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setUsdBuy(), List);
-        KursPage.changeToDescSort(KursPage.usdBuyColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setUsdBuy(), List);
+        kursPage.changeToAscSort(kursPage.usdBuyColumn());
+        List<String> List = kursPage.setUsdBuy();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setUsdBuy(), List);
+        kursPage.changeToDescSort(kursPage.usdBuyColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setUsdBuy(), List);
     }
 
     @Test
     public void sortByUsdSell() {
-        KursPage.changeToAscSort(KursPage.usdSellColumn());
-        List<String> List = KursPage.setUsdSell();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setUsdSell(), List);
-        KursPage.changeToDescSort(KursPage.usdSellColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setUsdSell(), List);
+        kursPage.changeToAscSort(kursPage.usdSellColumn());
+        List<String> List = kursPage.setUsdSell();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setUsdSell(), List);
+        kursPage.changeToDescSort(kursPage.usdSellColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setUsdSell(), List);
     }
 
     @Test
     public void sortByEurBuy() {
-        KursPage.changeToAscSort(KursPage.eurBuyColumn());
-        List<String> List = KursPage.setEurBuy();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setEurBuy(), List);
-        KursPage.changeToDescSort(KursPage.eurBuyColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setEurBuy(), List);
+        kursPage.changeToAscSort(kursPage.eurBuyColumn());
+        List<String> List = kursPage.setEurBuy();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setEurBuy(), List);
+        kursPage.changeToDescSort(kursPage.eurBuyColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setEurBuy(), List);
     }
 
     @Test
     public void sortByEurSell() {
-        KursPage.changeToAscSort(KursPage.eurSellColumn());
-        List<String> List = KursPage.setEurSell();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setEurSell(), List);
-        KursPage.changeToDescSort(KursPage.eurSellColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setEurSell(), List);
+        kursPage.changeToAscSort(kursPage.eurSellColumn());
+        List<String> List = kursPage.setEurSell();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setEurSell(), List);
+        kursPage.changeToDescSort(kursPage.eurSellColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setEurSell(), List);
     }
 
     @Test
     public void sortByRubBuy() {
-        KursPage.changeToAscSort(KursPage.rubBuyColumn());
-        List<String> List = KursPage.setRubBuy();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setRubBuy(), List);
-        KursPage.changeToDescSort(KursPage.rubBuyColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setRubBuy(), List);
+        kursPage.changeToAscSort(kursPage.rubBuyColumn());
+        List<String> List = kursPage.setRubBuy();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setRubBuy(), List);
+        kursPage.changeToDescSort(kursPage.rubBuyColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setRubBuy(), List);
     }
 
     @Test
     public void sortByRubSell() {
-        KursPage.changeToAscSort(KursPage.rubSellColumn());
-        List<String> List = KursPage.setRubSell();
-        Collections.sort(List, Comparator);
-        Assert.assertEquals(KursPage.setRubSell(), List);
-        KursPage.changeToDescSort(KursPage.rubSellColumn());
-        Collections.sort(List, Comparator.reversed());
-        Assert.assertEquals(KursPage.setRubSell(), List);
+        kursPage.changeToAscSort(kursPage.rubSellColumn());
+        List<String> List = kursPage.setRubSell();
+        List.sort(COMPARATOR);
+        Assert.assertEquals(kursPage.setRubSell(), List);
+        kursPage.changeToDescSort(kursPage.rubSellColumn());
+        List.sort(COMPARATOR.reversed());
+        Assert.assertEquals(kursPage.setRubSell(), List);
     }
 
     @Test
     public void selectBestBank() {
-        System.out.println(KursPage.setBestBank());
+        System.out.println(kursPage.setBestBank());
     }
 
     @AfterClass
