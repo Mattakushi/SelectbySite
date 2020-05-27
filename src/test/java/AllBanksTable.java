@@ -26,11 +26,12 @@ public class AllBanksTable {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         AllBanksPage = PageFactory.initElements(driver, pageObject.AllBanksPage.class);
         Utils = new Utils(driver);
         AllBanksPage.goHomeUrl()
               .goToAllBanksPage();
-        Utils.setElementAttribute(By.xpath("//table[@id='bel_banks']//tr[1]"), "class", "sectiontableentry1 odd");
+        Utils.setElementAttribute(By.xpath("//table[@id='bel_banks']/tbody/tr[1]"), "class", "sectiontableentry1 odd");
     }
 
     @Test

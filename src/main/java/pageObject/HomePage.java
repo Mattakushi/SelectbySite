@@ -8,10 +8,10 @@ public class HomePage {
 
     WebDriver driver;
 
-    @FindBy(xpath = "//a[@title='Все банки Беларуси']")
+    @FindBy(xpath = "//a/strong[text()='Все банки Беларуси']")
     private WebElement allBanksPage;
 
-    @FindBy(xpath = "//a[@title='Курсы Валют']")
+    @FindBy(xpath = "//a/strong[text()='Курсы валют']")
     private WebElement kursPage;
 
     public HomePage(WebDriver driver) {
